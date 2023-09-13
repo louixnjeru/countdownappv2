@@ -1,0 +1,53 @@
+{% extends 'master.html' %}
+
+{% block title %}
+Bus Times - {{ name }}
+{% endblock %}
+
+{% block content %}
+    <script>
+        var CSRF_TOKEN = '{{ csrf_token }}';
+    </script>
+    <div class='header'>
+        <h1>{{ name }}</h1>
+    </div>
+    {% for stop in stops %}
+        <div class='stop' onclick="document.forms['form-{{ forloop.counter }}'].submit()">
+            <form id='form-{{ forloop.counter }}' method="post" action="/stop/{{ stop.id }}">
+                {% csrf_token %}
+                <input type="hidden" id='name' name="name" value="{{ stop.name }}">
+                <input type="hidden" id='stopLetter' name="stopLetter" value="{{ stop.stopLetter }}">
+                <input type="hidden" id='waypoint' name="waypoint" value="{{ stop.waypoint }}">
+            </form>
+            <div class='stop-top-row'>
+                <div class='stop-indicator'>
+                    <div id='stop-indicator-letter'>
+                        {% if stop.stopLetter %}
+                            {{ stop.stopLetter }}
+                        {% else %}
+                            {{ "" }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class='stop-name'>
+                    {% if stop.name != name %}
+                        <h2>{{ stop.name }}</h2>
+                    {% endif %}
+                </div>
+            </div>
+            <div class='stop-towards'>
+                <h4>{{ stop.waypoint }}</h4>
+            </div>
+            <div class='stop-routes'>
+                <ul class='routes'>
+                    {% for route in stop.routes %}
+                        <li class='route'>
+                            {{ route|upper }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

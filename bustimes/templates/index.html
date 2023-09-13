@@ -1,0 +1,19 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block scripts %}
+    <script src="{% static 'homePage.js' %}"></script>
+{% endblock %}
+
+{% block title %}
+    Home - Bus Times
+{% endblock %}
+
+{% block content %}
+    <script>
+        var CSRF_TOKEN = '{{ csrf_token }}';
+    </script>
+    <h1 style="text-align: center">Nearby Stops</h1>
+
+    <div class='stop-list'></div>
+{% endblock %}

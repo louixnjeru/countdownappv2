@@ -1,0 +1,22 @@
+{% extends 'master.html' %}
+
+{% block title %}
+Bus Times - Results for '{{ searchTerm }}'
+{% endblock %}
+
+{% block content %}
+    <h1>Bus Stops matching "{{ searchTerm }}"</h1>
+    {% if matches > 0 %}
+        {% if matches == 1 %}
+            <p>1 match</p>
+        {% else %}
+            <p>{{ matches }} matches</p>
+        {% endif %}
+        {% for stop in stopList %}
+            <div class='stop' onclick='location.href="/station/{{ stop.id }}"'><h4>{{stop.name}}</h4></div>
+        {% endfor %}
+    {% else %}
+        <p>Sorry, no matches found</p>
+    {% endif %}
+
+{% endblock %}

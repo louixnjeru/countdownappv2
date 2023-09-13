@@ -1,0 +1,56 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block scripts %}
+    <script src="{% static 'stopPage.js' %}"></script>
+{% endblock %}
+
+{% block title %}
+ {{ name }} - Bus Times
+{% endblock %}
+
+{% block content %}
+    <script >
+        var CSRF_TOKEN = '{{ csrf_token }}';
+    </script>
+    <div class='arrivals-section'>
+        <div class='stop-top-row'>
+            <div class='stop-indicator'>
+                <div id='stop-indicator-letter'>
+                    {% if stopLetter != 'None' %}
+                        {{ stopLetter }}
+                    {% else %}
+                        {{ "" }}
+                    {% endif %}
+                </div>
+                
+            </div>
+            <div class='stop-name'>
+                <h1>{{ name }}</h1>
+            </div>
+        </div>
+        <div class='stop-towards'>
+            <h3>{{ waypoint }}</h3>
+        </div>
+        
+        <table class='arrivals'>
+            {% for a in arrivals %}
+                <tr onclick='getVehicleInfo("{{ a.vehicleId }}","{{ a.stopId }}","{{ a.destination }}")'>
+                    <td id='stop-route'><p id='stop-route-num'>{{ a.route }}</p></td>
+                    <td id='stop-destination'>{{ a.destination }}</td>
+                    <td id='stop-due'>{{ a.due }}</td>
+                </tr>
+            {% empty %}
+                <p>No arrivals expected at this stop within the next 30 minutes.</p>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div id='overlay' style="display: none">
+        <div id='route-display'>
+            <div id='exit-row'><button type="button" class='close-overlay'>Back</button></div>
+            <div id='route-info'></div>
+            <div id='route-stops'></div>
+        </div>
+    </div>
+{% endblock %}

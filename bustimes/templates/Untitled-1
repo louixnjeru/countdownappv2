@@ -1,0 +1,11 @@
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}
+    404 - Bus Times
+{% endblock %}
+
+{% block content %}
+    <h1>404s and Heartbreak</h1>
+    <p>The requested page cannot be found.</p>
+{% endblock %}

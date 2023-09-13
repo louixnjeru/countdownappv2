@@ -1,0 +1,231 @@
+* {
+    font-family: sans-serif;
+}
+
+.topnav {
+    background-color: red;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-element {
+    display: flex;
+    align-items: center;
+    
+}
+
+#search-field {
+    border-radius: 15px 0 0 15px;
+    padding: 0 0 0 15px;
+    height: 41px;
+    z-index: 1;
+}
+
+#search-button {
+    border-radius:  0 15px 15px 0;
+    height: 41px;
+    margin-left: -6px;
+    z-index: -1
+}
+
+#search-button:hover {
+    cursor: pointer;
+}
+
+body {
+    margin: 0px;
+}
+
+.main {
+    margin: 30px 5%;
+    z-index: 2;
+    position: relative;
+}
+
+.topnav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.stop-top-row {
+    display: flex;
+    height: 7.5%;
+}
+
+ul.routes, h4 {
+    list-style-type: none;
+    padding-left: 40px;
+}
+
+li.route, #stop-route-num {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    margin: 8px;
+    border: 8px;
+    border-radius: 6px;
+    padding: 5px;
+    text-align: center;
+    width: 65px;
+}
+
+.stop {
+    
+}
+
+#overlay {
+    background: rgba(0,0,0,0.6);
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    overflow: scroll;
+}
+
+#overlay > * {
+    margin: 8%;
+    padding: 5%;
+    background: rgba(255,255,255,1.0);
+    z-index: 5;
+}
+
+#route-display {
+    border-radius: 25px;
+}
+
+#route-info-num {
+    background-color: red;
+    display: inline-block;
+    width: 80px;
+    color: white;
+    margin: 8px;
+    border: 8px;
+    border-radius: 6px;
+    padding: 5px;
+    text-align: center;
+}
+
+#stop-indicator-letter {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    line-height: 25px;
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+    margin-left: 8px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.stop-indicator #stop-indicator-letter {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.current-stop {
+    font-weight: 900;
+}
+
+.before {
+    color: dimgray;
+    opacity: 0.65;
+}
+
+#exit-row > h2:hover {
+    background: rgba(0,0,0,0.6);
+    cursor: pointer;
+}
+
+tr:nth-child(1) {
+    width: 15%;
+}
+
+tr:nth-child(2) {
+    width: 35%;
+}
+
+tr:nth-child(3) {
+    width: 25%;
+}
+
+table {
+    width: 100%;
+}
+
+.arrivals tr:hover {
+    cursor: pointer;
+}
+
+.stop {
+    padding: 20px;
+    border: 5px;
+    border-radius: 25px;
+}
+
+.stop:hover, .arrivals tr:hover{
+    box-shadow: 0px 5px 15px 5px rgba(0, 0, 0, 0.25);
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
+.stop.name {
+    width: 70%;
+    text-align: center;
+}
+
+.stop-name {
+    text-align: center;
+    width: 65%;
+}
+
+.stop-indicator {
+    display: inline;
+    width: 20%;
+}
+
+.close-overlay {
+    width: 90px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bolder;
+    margin: 8px;
+    background-color: white;
+    border: 0px solid red;
+    border-radius: 8px;
+    color: black;
+}
+
+.close-overlay:hover {
+    background-color: red;
+    border: 2px solid red;
+    color: white;
+    cursor: pointer;
+}
+
+#route-stops-table tr {
+    height: 42px;
+}
+
+.stop-towards > * {
+    margin-left: 8px;
+}
+
+.arrivals-section p {
+    text-align: center;
+}
+
+.search-area {
+    align-content: center;
+}
+
+.search {
+    border: none;
+    font-size: 17px;
+}
